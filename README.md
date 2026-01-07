@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub](https://github.com/MattJM1007/interactive-rating-component)
-- Live Site URL: [Click Me](https://your-live-site-url.com)
+- Live Site URL: [Click Me](https://mattjm1007.github.io/interactive-rating-component/)
 
 ## My process
 
