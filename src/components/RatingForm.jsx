@@ -1,14 +1,14 @@
 export default function RatingFrom({ onSubmit }) {
   return (
     <>
-      <form className="wrapper" onSubmit={onSubmit}>
-        <img src="./images/icon-star.svg" alt="" />
+      <form className="wrapper card flow padding-md" onSubmit={onSubmit}>
+        <img className="icon" src="./images/icon-star.svg" alt="" />
 
-        <h2>How did we do?</h2>
+        <h2 className="heading flow--lg">How did we do?</h2>
 
         <p> Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
 
-        <fieldset className="radio-group">
+        <fieldset className="radio-group flex-flow space-between flex-wrap">
           <label className="radio-button">
             <input type="radio" name="rating" required value={1} /> 1
           </label>
@@ -26,7 +26,7 @@ export default function RatingFrom({ onSubmit }) {
           </label>
         </fieldset>
 
-        <button className="button" type="submit">
+        <button className="button flow--lg" type="submit">
           Submit
         </button>
       </form>

@@ -1,12 +1,12 @@
 export default function SuccessMessage({ userRating }) {
   return (
     <>
-      <div className="wrapper" role="alert">
-        <img src="./images/illustration-thank-you.svg" alt="" />
+      <div className="wrapper flow card text-center padding-lg" role="alert">
+        <img className="margin-center" src="./images/illustration-thank-you.svg" alt="" />
 
-        <span className="user-rating">You selected {userRating} out of 5</span>
+        <p className="user-rating flow--lg">You selected {userRating} out of 5</p>
 
-        <h2>Thank you!</h2>
+        <h2 className="heading flow--lg">Thank you!</h2>
 
         <p>We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!</p>
       </div>

@@ -1,72 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
   /* Colors - Primary */
-  --clr-primary-100: hsl(0 100% 100%);
-  --clr-primary-200: ;
-  --clr-primary-300: ;
-  --clr-primary-400: ;
-  --clr-primary-500: ;
-  --clr-primary-600: ;
-  --clr-primary-700: ;
-  --clr-primary-800: hsl(216 12% 8%);
-  --clr-primary-900: hsl(0 0% 0%);
-
-  /* Colors - Accent */
-  --clr-accent-1: ;
-  --clr-accent-2: ;
+  --clr-primary-500: hsl(25 97% 53%);
 
   /* Colors - Neutral */
-  --clr-neutral-100: ;
-  --clr-neutral-200: ;
-  --clr-neutral-300: ;
-  --clr-neutral-400: ;
-  --clr-neutral-500: ;
-  --clr-neutral-600: ;
-  --clr-neutral-700: ;
-  --clr-neutral-800: ;
-  --clr-neutral-900: ;
+  --clr-neutral-100: hsl(0 100% 100%);
+  --clr-neutral-400: hsl(217 12% 63%);
+  --clr-neutral-600: hsl(213 19% 18%);
+  --clr-neutral-700: hsl(216 12% 8%);
+
+  /* Colors - Gradient */
+  --clr-gradient-1: linear-gradient(hsl(215 20% 17%), hsl(216 24% 12%));
 
   /* Font Families */
-  --ff-base: ;
-  --ff-accent: ;
+  --ff-base: "Overpass", sans-serif;
 
   /* Font Sizes */
-  --fs-xs: calc(12 / 16 * 1rem);
   --fs-sm: calc(14 / 16 * 1rem);
-  --fs-base: calc(16 / 16 * 1rem);
-  --fs-md: calc(18 / 16 * 1rem);
-  --fs-lg: calc(20 / 16 * 1rem);
-  --fs-xl: calc(24 / 16 * 1rem);
-  --fs-2xl: calc(32 / 16 * 1rem);
-  --fs-3xl: calc(48 / 16 * 1rem);
-  --fs-4xl: calc(64 / 16 * 1rem);
+  --fs-base: calc(15 / 16 * 1rem);
+  --fs-md: calc(16 / 16 * 1rem);
+  --fs-lg: calc(24 / 16 * 1rem);
+  --fs-xl: calc(28 / 16 * 1rem);
+
+  --fs-heading: clamp(1.5rem, 1.325rem + 0.85vw, 1.75rem);
+  --fs-body: clamp(0.875rem, 0.75rem + 0.425vw, 1rem);
 
   /* Font Weights */
-  --fw-light: ;
-  --fw-regular: ;
-  --fw-medium: ;
-  --fw-bold: ;
-  --fw-black: ;
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
 
   /* Margin / Padding Spaces */
-  --space-3xs: ;
-  --space-2xs: ;
-  --space-xs: ;
-  --space-sm: ;
-  --space-md: ;
-  --space-lg: ;
-  --space-xl: ;
-  --space-2xl: ;
-  --space-3xl: ;
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 1rem; /* 16px */
+  --space-md: 1.5rem; /* 24px */
+  --space-lg: 2rem; /* 32px */
+  --space-xl: 2.5rem; /* 40px */
 
   /* Space One-Step-Up pairs */
-  --space-3xs-2xs: ;
-  --space-2xs-xs: ;
-  --space-xs-sm: ;
-  --space-sm-md: ;
-  --space-md-lg: ;
-  --space-lg-xl: ;
-  --space-xl-2xl: ;
-  --space-2xl-3xl: ;
+  --space-md-lg: clamp(1.5rem, 1.325rem + 0.75vw, 2rem);
+  --space-lg-xl: clamp(2rem, 1.825rem + 1.125vw, 2.5rem);
 }
 
 /* ******** RESET ******** */
@@ -107,7 +81,7 @@ ol[role="list"] {
 
 body {
   min-height: 100vh;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 input,
@@ -126,11 +100,19 @@ picture {
 /* ******** GENERAL STYLES ******** */
 body {
   font-family: var(--ff-base);
-  font-size: var(--fs-base);
+  font-size: var(--fs-body);
   font-weight: var(--fw-regular);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--clr-neutral-700);
+  color: var(--clr-neutral-400);
+  padding: var(--space-md);
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
 }
 
 /* ******** COMPOSITION / LAYOUT ******** */
@@ -143,27 +125,17 @@ body {
   margin-block-start: var(--flow-space, 1rem);
 }
 
+.flow--lg {
+  --flow-space: var(--space-md-lg);
+}
+
 .flex-flow {
   display: flex;
-  gap: var(--gap, 1rem);
+  row-gap: 1rem;
 }
 
-.grid-flow {
-  --column-count: 1;
-  --column-size: 1fr;
-  --column-template: repeat(var(--column-count, 1), var(--column-size, 1fr));
-
-  display: grid;
-  gap: var(--gap, 1rem);
-  grid-template-columns: var(--column-template);
-}
-
-.grid-auto {
-  --min-col-size: 200px;
-  --item-placement: auto-fit;
-  display: grid;
-  gap: var(--gap, 1rem);
-  grid-template-columns: repeat(var(--item-placement), minmax(min(var(--min-col-size), 100%), 1fr));
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .align-center {
@@ -172,6 +144,10 @@ body {
 
 .justify-center {
   justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .place-center {
@@ -194,7 +170,98 @@ body {
   display: none;
 }
 
+.heading {
+  font-size: var(--fs-heading);
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-100);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margin-center {
+  margin-inline: auto;
+}
+
+.padding-md {
+  padding-block: var(--space-md-lg);
+  padding-inline: var(--space-md);
+}
+
+.padding-lg {
+  padding-block: var(--space-lg-xl);
+  padding-inline: var(--space-md-lg);
+}
+
 /* ******** COMPONENTS ******** */
+.button {
+  font-weight: var(--fw-semi-bold);
+  text-transform: uppercase;
+  background: var(--clr-primary-500);
+  width: 100%;
+  border: 0;
+  border-radius: 100vw;
+  padding-block: 0.75rem;
+  cursor: pointer;
+  transition: background 300ms ease;
+
+  &:hover {
+    background: var(--clr-neutral-100);
+  }
+}
+
+.card {
+  background: var(--clr-gradient-1);
+  border-radius: 1.875rem;
+  max-inline-size: 26rem;
+}
+
+.icon {
+  background: var(--clr-neutral-600);
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radio-button {
+  background: var(--clr-neutral-600);
+  text-align: center;
+  font-weight: var(--fw-bold);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 300ms ease;
+
+  &:hover {
+    background: var(--clr-neutral-100);
+    color: var(--clr-neutral-700);
+  }
+
+  &:has(input:checked) {
+    background: var(--clr-primary-500);
+    color: var(--clr-neutral-700);
+  }
+}
+
+.user-rating {
+  color: var(--clr-primary-500);
+  background: var(--clr-neutral-600);
+  max-width: fit-content;
+  margin-inline: auto;
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-md);
+  border-radius: 100vw;
+}
 
 /* ******** BLOCK STYLE ******** */
 
