@@ -1,8 +1,10 @@
+import thankYouImage from "/images/illustration-thank-you.svg";
+
 export default function SuccessMessage({ userRating, submitted }) {
   return (
     <>
-      <div className={`wrapper flow card text-center padding-lg ${submitted ? "" : "hidden"}`} role="alert">
-        <img className="margin-center" src="./images/illustration-thank-you.svg" alt="" />
+      <div className={`wrapper flow card text-center padding-lg ${submitted ? "" : "hidden"}`} role="status" aria-live="polite" aria-atomic="true">
+        <img className="margin-center" src={thankYouImage} alt="" />
 
         <p className="user-rating flow--lg">You selected {userRating} out of 5</p>
 

@@ -10,6 +10,9 @@
   --clr-neutral-600: hsl(213 19% 18%);
   --clr-neutral-700: hsl(216 12% 8%);
 
+  /* Colors - Error */
+  --clr-error-400: hsl(0 84% 60%);
+
   /* Colors - Gradient */
   --clr-gradient-1: linear-gradient(hsl(215 20% 17%), hsl(216 24% 12%));
 
@@ -194,6 +197,12 @@ fieldset {
   padding-inline: var(--space-md-lg);
 }
 
+.error {
+  text-align: center;
+  color: var(--clr-error-400);
+  font-size: var(--fs-sm);
+}
+
 /* ******** COMPONENTS ******** */
 .button {
   font-weight: var(--fw-semi-bold);
@@ -206,8 +215,11 @@ fieldset {
   cursor: pointer;
   transition: background 300ms ease;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     background: var(--clr-neutral-100);
+    outline-offset: 3px;
+    /* outline-color: var(--clr-primary-500); */
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -248,13 +260,16 @@ fieldset {
   cursor: pointer;
   transition: background 300ms ease;
 
-  &:hover {
-    background: var(--clr-neutral-100);
+  &:has(input:checked) {
+    background: var(--clr-primary-500);
     color: var(--clr-neutral-700);
   }
 
-  &:has(input:checked) {
-    background: var(--clr-primary-500);
+  &:has(input:hover),
+  &:has(input:focus-visible) {
+    outline: 2px solid var(--clr-primary-500);
+    outline-offset: 3px;
+    background: var(--clr-neutral-100);
     color: var(--clr-neutral-700);
   }
 
