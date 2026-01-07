@@ -1,5 +1,5 @@
 import "./index.css";
-import RatingFrom from "./components/RatingForm";
+import RatingForm from "./components/RatingForm";
 import SuccessMessage from "./components/SuccessState";
 import { useState } from "react";
 
@@ -9,7 +9,7 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const rating = e.target.querySelector("input:checked").value;
+    const rating = e.target.querySelector("input:checked").value || 0;
     console.log(rating);
     setSubmitted(true);
     setUserRating(rating);
@@ -22,7 +22,7 @@ function App() {
     <>
       <main>
         <h1 className="visually-hidden">Feedback Form</h1>
-        <RatingFrom onSubmit={handleSubmit} submitted={submitted} />
+        <RatingForm onSubmit={handleSubmit} submitted={submitted} />
         <SuccessMessage userRating={userRating} submitted={submitted} />
       </main>
     </>
