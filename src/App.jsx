@@ -20,9 +20,11 @@ function App() {
 
   return (
     <>
-      <h1 className="visually-hidden">Feedback Form</h1>
-      {!submitted && <RatingFrom onSubmit={handleSubmit} />}
-      {submitted && <SuccessMessage userRating={userRating} />}
+      <main>
+        <h1 className="visually-hidden">Feedback Form</h1>
+        <RatingFrom onSubmit={handleSubmit} submitted={submitted} />
+        <SuccessMessage userRating={userRating} submitted={submitted} />
+      </main>
     </>
   );
 }

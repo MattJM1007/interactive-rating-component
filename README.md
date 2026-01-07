@@ -1,16 +1,73 @@
-# React + Vite
+# Frontend Mentor - Interactive rating component solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Interactive rating component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-rating-component-koxpeBUmI). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued Development](#continued-development)
+- [Author](#author)
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### The challenge
 
-## Expanding the ESLint configuration
+Users should be able to:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Select and submit a number rating
+- See the "Thank you" card state after submitting a rating
+
+### Screenshot
+
+![](./screenshot.png)
+
+### Links
+
+- Solution URL: [GitHub](https://github.com/MattJM1007/interactive-rating-component)
+- Live Site URL: [Click Me](https://your-live-site-url.com)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- [React](https://reactjs.org/) - JS library
+
+### What I learned
+
+One new thing I applied here is fluid spacing and typography using clamp in CSS. This let me set response font and margins without media queries:
+
+```css
+--fs-heading: clamp(1.5rem, 1.325rem + 0.85vw, 1.75rem);
+--fs-body: clamp(0.875rem, 0.75rem + 0.425vw, 1rem);
+
+/* Space One-Step-Up pairs */
+--space-md-lg: clamp(1.5rem, 1.325rem + 0.75vw, 2rem);
+--space-lg-xl: clamp(2rem, 1.825rem + 1.125vw, 2.5rem);
+```
+
+For Accessibility, I found it better to render components using React state and toggling the hidden class. When I conditionally rendered just the component, I found the accessbility tree in my dev tools did not update. So I felt that this was the best way for accessibility.
+
+The submitted variable is passed to the component as a prop.
+
+```js
+<form className={`wrapper card flow padding-md ${submitted ? "hidden" : ""}`} onSubmit={onSubmit}>
+```
+
+### Continued development
+
+I want to keep paying attention to accessibility and how it works inside React to deliver the best experience for everyone.
+
+## Author
+
+- Frontend Mentor - [@MattJM1007](https://www.frontendmentor.io/profile/MattJM1007)

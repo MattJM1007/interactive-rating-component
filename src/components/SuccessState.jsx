@@ -1,7 +1,7 @@
-export default function SuccessMessage({ userRating }) {
+export default function SuccessMessage({ userRating, submitted }) {
   return (
     <>
-      <div className="wrapper flow card text-center padding-lg" role="alert">
+      <div className={`wrapper flow card text-center padding-lg ${submitted ? "" : "hidden"}`} role="alert">
         <img className="margin-center" src="./images/illustration-thank-you.svg" alt="" />
 
         <p className="user-rating flow--lg">You selected {userRating} out of 5</p>
